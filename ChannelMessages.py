@@ -1,3 +1,4 @@
+import os 
 import configparser
 import json
 import asyncio
@@ -25,7 +26,8 @@ class DateTimeEncoder(json.JSONEncoder):
 
 # Reading Configs
 config = configparser.ConfigParser()
-config.read("config.ini")
+config_file=os.path.join(os.path.dirname(__file__),"config-sample.ini")
+config.read(config_file)
 
 # Setting configuration values
 api_id = config['Telegram']['api_id']
